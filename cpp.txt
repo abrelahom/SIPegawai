@@ -1,0 +1,119 @@
+#include <iostream>
+#include <conio.h>
+#include <iomanip>
+#include <string.h>
+#include <stdlib.h>
+using namespace std;
+main()
+{
+	char plat[20], servis, ktgr;
+	int tarif, kd_servis, byk, t1=200000, t2=500000, t3=50000, t4=100000, t5=150000, dskn, ta, byr,kmbln;
+	system("color 02");
+	awal:
+	cout<<"========================================================================================================================"<<endl;
+	cout<<"\t\t\t\t\t\t   Aplikasi Bengkel			"<<endl;
+	cout<<"========================================================================================================================"<<endl;
+	cout<<"\t Kode Servis \t | \t Servis \t | \t Kategori \t | \t Tarif"<<endl;
+	cout<<"\t      1        \t    Membersihkan Mesin \t         Sedang \t	200.000"<<endl;
+	cout<<"\t      2        \t    Memperbaiki Mesin \t         Berat \t	        500.000"<<endl;
+	cout<<"\t      3        \t    Membersihkan Suku Cadang \t Ringan \t	50.000"<<endl;
+	cout<<"\t      4        \t    Memperbaiki Suku Cadang \t Sedang \t	200.000"<<endl;
+	cout<<"\t      5        \t    Mengganti Suku Cadang \t Sedang \t	200.000"<<endl;
+	cout<<"========================================================================================================================"<<endl;
+	cout<<"Masukan Plat Nomor Kendaraan \t: "<<setw(5);cin>>plat;
+	cout<<"Masukan Kode Servis \t: "<<setw(5); cin>>kd_servis;
+	cout<<"========================================================================================================================"<<endl;
+	
+	switch(kd_servis){
+		case 1:
+			goto kdservis1;
+			break;
+		case 2:
+			goto kdservis2;
+			break;
+		case 3:
+			goto kdservis3;
+			break;
+		case 4:
+			goto kdservis4;
+			break;
+		case 5:
+			goto kdservis5;
+			break;
+		case 6:
+			goto kdserviselse;
+			break;
+	}
+	
+	kdservis1:
+	cout<<"Servis \t: Membersihkan Mesin"<<endl;
+	cout<<"Kategori \t: Sedang"<<endl;
+	cout<<"Tarif \t: "<<t1<<endl;
+	tarif = t1;
+	goto next;
+	
+	kdservis2:
+	cout<<"Servis \t: Memperbaiki Mesin"<<endl;
+	cout<<"Kategori \t: Berat"<<endl;
+	cout<<"Tarif \t: "<<t2<<endl;
+	tarif = t2;
+	goto next;
+	
+	kdservis3:
+	cout<<"Servis \t: Membersihkan Suku Cadang"<<endl;
+	cout<<"Kategori \t: Ringan"<<endl;
+	cout<<"Tarif \t: "<<t3<<endl;
+	tarif = t3;
+	goto next;
+	
+	kdservis4:
+	cout<<"Servis \t: Memperbaiki Suku Cadang"<<endl;
+	cout<<"Kategori \t: Sedang"<<endl;
+	cout<<"Tarif \t: "<<t4<<endl;
+	tarif = t4;
+	goto next;
+	
+	kdservis5:
+	cout<<"Servis \t: Mengganti Suku Cadang"<<endl;
+	cout<<"Kategori \t: Sedang"<<endl;
+	cout<<"Tarif \t: "<<t5<<endl;
+	tarif = t5;
+	goto next;
+	
+	kdserviselse:
+	cout<<"Tidak Ada dalam Pilihan"<<endl;
+	system("cls");
+	goto awal;
+	
+	
+	next:
+	cout<<"========================================================================================================================"<<endl;
+	cout<<"Berapa Banyak Servis Yang Akan Anda Lakukan \t: "<<setw(5);cin>>byk;
+	ta = tarif*byk;
+	cout<<"========================================================================================================================"<<endl;
+	cout<<"Total Awal \t: "<<ta<<endl;
+	
+	if (ta>=1800000){
+		dskn=ta*10/100;
+		cout<<"Diskon \t \t: 10%"<<endl;
+	}else if(ta >= 800000){
+		dskn=ta*8/100;
+		cout<<"Diskon \t \t: 8%"<<endl;
+	}else if(ta >=600000){
+		dskn=ta*6/100;
+		cout<<"Diskon \t \t: 6%";
+	}else if(ta >= 400000){
+		dskn=ta*4/100;
+		cout<<"Diskpn \t \t: 4%";
+	}else if(ta>=200000){
+		dskn=ta*2/100;
+		cout<<"Diskon \t \t: 2%";
+	}
+	
+	cout<<"Total Akhir \t: "<<ta-dskn<<endl;
+	cout<<"========================================================================================================================"<<endl;
+	cout<<"Bayar \t: "<<setw(5);cin>>byr;
+	cout<<"Kembalian \t: "<<byr-(ta-dskn);
+	
+	
+}
